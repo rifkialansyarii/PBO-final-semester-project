@@ -4,7 +4,7 @@ from tqdm import tqdm
 class SmartConversion():
     def show_loading_screen(self):
         os.system('cls')
-
+        
         try:
             resp = requests.get('https://asciified.thelicato.io/api/v2/ascii?text=%23Smart%20Converter/')
             print(resp.text)
@@ -78,21 +78,22 @@ class SmartConversion():
 
                 self.conversion()
             case '4':
-                pass
                 os.system('cls')
 
                 panjang.show_menu()
                 panjang.konversi()
                 panjang.lanjut()
+
+                self.conversion()
             case '5':
                 os.system('cls')
                 print('Terima kasih telah menggunakan program smart converter!')
                 return
             case _:
-                print('Inputan Anda Tidak valid')
+                print('Pilihan tidak ada!')
             
 if __name__ == '__main__':
-    conversion1 = SmartConversion()
-    conversion1.show_loading_screen()
-    conversion1.conversion()
+    conversion = SmartConversion()
+    conversion.show_loading_screen()
+    conversion.conversion()
         
