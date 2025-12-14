@@ -13,11 +13,30 @@ class SmartConversion():
             for i in tqdm(range(50), desc='Loading'):
                 time.sleep(0.1)
 
-        except requests.exceptions.RequestException as e:
-            print('\033[1m' + "Ada kesalahan: " + '\033[0m', e)
+        except requests.exceptions.Timeout:
+            print("Terjadi kesalahan waktu tunggu. Permintaan membutuhkan waktu terlalu lama untuk merespons.")
             print("Mencoba lagi dalam 5 detik...")
             time.sleep(5)
             self.show_loading_screen()
+        
+        except requests.exceptions.ConnectionError:
+            print("Terjadi kesalahan koneksi. Silakan periksa koneksi internet Anda atau URL.")
+            print("Mencoba lagi dalam 5 detik...")
+            time.sleep(5)
+            self.show_loading_screen()
+        
+        except requests.exceptions.HTTPError as err:
+            print(f"Terjadi kesalahan HTTP: {err}") 
+            print("Mencoba lagi dalam 5 detik...")
+            time.sleep(5)
+            self.show_loading_screen()
+        
+        except requests.exceptions.RequestException as e:
+            print('\033[1m' + "Terjadi kesalahan permintaan: " + '\033[0m', e)
+            print("Mencoba lagi dalam 5 detik...")
+            time.sleep(5)
+            self.show_loading_screen()
+
             
     def show_menu_conversion(self):
         os.system('cls')
