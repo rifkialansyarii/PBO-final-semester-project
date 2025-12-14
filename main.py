@@ -5,13 +5,20 @@ class SmartConversion():
     def show_loading_screen(self):
         os.system('cls')
 
-        resp = requests.get('https://asciified.thelicato.io/api/v2/ascii?text=%23Smart%20Converter/')
-        print(resp.text)
-        print('\033[1m' + 'Project By UHUYYY\n' + '\033[0m')
+        try:
+            resp = requests.get('https://asciified.thelicato.io/api/v2/ascii?text=%23Smart%20Converter/')
+            print(resp.text)
+            print('\033[1m' + 'Project By UHUYYY\n' + '\033[0m')
 
-        for i in tqdm(range(50), desc='Loading'):
-            time.sleep(0.1)
-    
+            for i in tqdm(range(50), desc='Loading'):
+                time.sleep(0.1)
+
+        except requests.exceptions.RequestException as e:
+            print(f"Ada kesalahan: {e}")
+            print("Mencoba lagi dalam 5 detik...")
+            time.sleep(5)
+            self.show_loading_screen()
+            
     def show_menu_conversion(self):
         os.system('cls')
 
