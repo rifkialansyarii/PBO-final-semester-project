@@ -8,7 +8,7 @@ class SmartConversion():
         try:
             resp = requests.get('https://asciified.thelicato.io/api/v2/ascii?text=%23Smart%20Converter/')
             print(resp.text)
-            print('\033[1m' + 'Project By UHUYYY\n' + '\033[0m')
+            print('\033[1mProject By UHUYYY\n\033[0m')
 
             for i in tqdm(range(50), desc='Loading'):
                 time.sleep(0.1)
@@ -32,7 +32,7 @@ class SmartConversion():
             self.show_loading_screen()
         
         except requests.exceptions.RequestException as e:
-            print('\033[1m' + "Terjadi kesalahan permintaan: " + '\033[0m', e)
+            print('\033[1mTerjadi kesalahan permintaan: \033[0m', e)
             print("Mencoba lagi dalam 5 detik...")
             time.sleep(5)
             self.show_loading_screen()
