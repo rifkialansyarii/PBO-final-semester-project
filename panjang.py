@@ -50,7 +50,3 @@ def lanjut():
                 break
             case _:
                 print("Input Tidak Valid, Silahkan Masukkan 'y' atau 'n'")
-
-show_menu()
-konversi()
-lanjut()
