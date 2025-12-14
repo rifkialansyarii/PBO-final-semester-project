@@ -1,4 +1,4 @@
-import requests, time, os, suhu, waktu, berat
+import requests, time, os, suhu, waktu, berat, panjang
 from tqdm import tqdm
 
 class SmartConversion():
@@ -14,7 +14,7 @@ class SmartConversion():
                 time.sleep(0.1)
 
         except requests.exceptions.RequestException as e:
-            print(f"Ada kesalahan: {e}")
+            print('\033[1m' + "Ada kesalahan: " + '\033[0m', e)
             print("Mencoba lagi dalam 5 detik...")
             time.sleep(5)
             self.show_loading_screen()
@@ -60,11 +60,11 @@ class SmartConversion():
                 self.conversion()
             case '4':
                 pass
-                # os.system('cls')
+                os.system('cls')
 
-                # panjang.show_menu()
-                # panjang.konversi()
-                # panjang.lanjut()
+                panjang.show_menu()
+                panjang.konversi()
+                panjang.lanjut()
             case '5':
                 os.system('cls')
                 print('Terima kasih telah menggunakan program smart converter!')
