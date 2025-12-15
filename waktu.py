@@ -62,6 +62,7 @@ def lanjut():
         user_input = input("Apakah Ingin Melanjutkan Konversi Waktu? (y/n): ")
         match user_input:
             case 'y':
+                os.system('cls')
                 show_menu()
                 konversi()
             case 'n':
